@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "couching-app",
-    "slug": "couching-app",
+    "name": "coaching-app",
+    "slug": "coaching-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
