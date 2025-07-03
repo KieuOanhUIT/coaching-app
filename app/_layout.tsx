@@ -12,7 +12,7 @@ export default function RootLayout() {
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
-const [userDetail, setUserDetail] = useState({});
+  const [userDetail, setUserDetail] = useState(null);
 
   // Su dung font chu khac
   // const [loaded, error] = useFonts({
@@ -33,11 +33,10 @@ const [userDetail, setUserDetail] = useState({});
     //   </Stack>
     //   <StatusBar style="auto" />
     // </ThemeProvider>
-    <UserDetailContext.Provider value={[userDetail, setUserDetail]}>
+    <UserDetailContext.Provider value={{userDetail, setUserDetail}}>
       <Stack screenOptions={{
         headerShown: false
-      }}>
-      </Stack>
+      }}/>
     </UserDetailContext.Provider>
   );
 }

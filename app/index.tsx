@@ -12,14 +12,14 @@ export default function Index() {
     const { userDetail, setUserDetail } = useContext(UserDetailContext);
     onAuthStateChanged(auth, async (user) => {
         if (user) {
-        console.log(user);
-        if (user.email) {
-            const result = await getDoc(doc(db, 'users', user.email));
-            setUserDetail(result.data());
-            router.replace('/(tabs)/explore');
-        } else {
-            console.error("User email is null");
-        }
+            console.log(user);
+            if (user.email) {
+                const result = await getDoc(doc(db, 'users', user.email));
+                setUserDetail(result.data());
+                router.replace('/(tabs)/explore');
+            } else {
+                console.error("User email is null");
+            }
         }
     })
 
@@ -56,21 +56,21 @@ export default function Index() {
                     Welcome to Coaching App
                 </Text>
                 <Text style={{
-                    fontSize: 16, color: 'white', marginTop: 20, textAlign:'center'
+                    fontSize: 16, color: 'white', marginTop: 20, textAlign: 'center'
                 }}>
                     Transform your ideas into engaging educational content, effortlessly with AI!
                 </Text>
                 <TouchableOpacity style={styles.button}
                     onPress={() => router.push('/auth/signUp')}
                 >
-                    <Text style={[styles.buttonText, {color: Colors.PRIMARY }]}>Get started</Text>
+                    <Text style={[styles.buttonText, { color: Colors.PRIMARY }]}>Get started</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={[styles.button, {
                     backgroundColor: Colors.PRIMARY, borderWidth: 2, borderColor: 'white'
                 }]}
-                onPress={()=>router.push('/auth/signIn')}
+                    onPress={() => router.push('/auth/signIn')}
                 >
-                    <Text style={[styles.buttonText, {color: 'white'}]}>Already have an account?</Text>
+                    <Text style={[styles.buttonText, { color: 'white' }]}>Already have an account?</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -78,14 +78,14 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-    button:{
+    button: {
         padding: 15,
         backgroundColor: 'white',
         marginTop: 20,
         borderRadius: 10,
         width: '80%'
     },
-    buttonText:{
+    buttonText: {
         textAlign: 'center',
         fontSize: 18,
     }
