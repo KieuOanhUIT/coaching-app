@@ -9,13 +9,17 @@ import Colors from './../constants/Colors';
 export default function Index() {
 
     const router = useRouter();
-    const [userDetail, setUserDetail] = useContext(UserDetailContext)
-    onAuthStateChanged(auth,async(user)=>{
-        if(user){
-            console.log(user);
-            const result=await getDoc(doc(db,'users',user?.email));
-            setUserDetail(result.data())
-            router.replace('/(tabs)/home')
+    const { userDetail, setUserDetail } = useContext(UserDetailContext);
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+        console.log(user);
+        if (user.email) {
+            const result = await getDoc(doc(db, 'users', user.email));
+            setUserDetail(result.data());
+            router.replace('/(tabs)/explore');
+        } else {
+            console.error("User email is null");
+        }
         }
     })
 
