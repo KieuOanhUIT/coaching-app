@@ -23,3 +23,9 @@ async function generateContentFromPrompt(prompt) {
 
 export { generateContentFromPrompt };
 
+export const generateCourseAIModel = model.startChat({
+    generationConfig,
+    history:[
+
+    ]
+});
