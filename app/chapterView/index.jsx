@@ -25,13 +25,13 @@ export default function ChapterView() {
         })
         setLoader(false)
         // router.replace({
-        //     pathname: '/courseView',
+        //     pathname: '/courseView/'+docId,
         //     params: {
         //         courseParams: courseParams
         //     }
         // });
-        router.back();
-
+        router.replace('/courseView/'+docId)
+        // router.back();
         // Back
     }
     return (

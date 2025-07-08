@@ -14,10 +14,10 @@ export default function Header() {
     }}>
       <View>
         <Text style={{
-          fontSize: 25, fontWeight: 'bold'
+          fontSize: 25, fontWeight: 'bold', color: 'white'
         }}>Hello, {userDetail?.name}</Text>
         <Text style={{
-          fontSize: 17
+          fontSize: 17, color: 'white'
         }}>Let's get started!
         </Text>
       </View>

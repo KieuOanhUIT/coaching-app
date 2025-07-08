@@ -29,8 +29,8 @@ export default function Intro({ course }) {
                     alignItems: 'center',
                     marginTop: 5
                 }}>
-                    <Ionicons name="book-outline" size={24} color="black" />
-                    <Text style={{ fontSize: 18 }}>{course?.chapters?.length} Chapters</Text>
+                    <Ionicons name="book-outline" size={24} color={Colors.PRIMARY} />
+                    <Text style={{ fontSize: 18, color:Colors.PRIMARY}}>{course?.chapters?.length} Chapters</Text>
                 </View>
                 <Text style={{
                     fontWeight: 'bold',
