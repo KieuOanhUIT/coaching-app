@@ -4,7 +4,7 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 import Colors from '../../constants/Colors';
 import { imageAssets } from '../../constants/Option';
 export default function CourseList({ courseList }) {
-    const router=useRouter();
+    const router = useRouter();
     return (
         <View style={{
             marginTop: 15
@@ -18,20 +18,20 @@ export default function CourseList({ courseList }) {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({ item, index }) => (
-                    <TouchableOpacity 
-                    onPress={()=>router.push({
-                        pathname:'/courseView',
-                        params:{
-                            courseParams:JSON.stringify(item)
-                        }
-                    })}
-                    key={index} style={styles.courseContainer}>
+                    <TouchableOpacity
+                        onPress={() => router.push({
+                            pathname: '/courseView/' + item?.docId,
+                            params: {
+                                courseParams: JSON.stringify(item)
+                            }
+                        })}
+                        key={index} style={styles.courseContainer}>
                         <Image source={imageAssets[item.banner_image]}
-                        style={{
-                            width: '100%',
-                            height:150,
-                            borderRadius: 15
-                        }}/>
+                            style={{
+                                width: '100%',
+                                height: 150,
+                                borderRadius: 15
+                            }} />
                         <Text style={{
                             fontWeight: 'bold',
                             fontSize: 18,
@@ -44,8 +44,8 @@ export default function CourseList({ courseList }) {
                             alignItems: 'center',
                             marginTop: 5
                         }}>
-                        <Ionicons name="book-outline" size={24} color="black" />
-                        <Text>{item?.chapters?.length} Chapters</Text>
+                            <Ionicons name="book-outline" size={24} color="black" />
+                            <Text>{item?.chapters?.length} Chapters</Text>
                         </View>
                     </TouchableOpacity>
                 )}
@@ -55,7 +55,7 @@ export default function CourseList({ courseList }) {
 }
 
 const styles = StyleSheet.create({
-    courseContainer:{
+    courseContainer: {
         padding: 10,
         backgroundColor: Colors.BG_GRAY,
         margin: 6,

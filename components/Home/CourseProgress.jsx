@@ -4,13 +4,19 @@ import Colors from '../../constants/Colors';
 import { imageAssets } from '../../constants/Option';
 
 export default function CourseProgress({ courseList }) {
+    const GetCompletedChapters = (course) => {
+        const completedChapter = course?.completedChapter?.length;
+        const perc = completedChapter / course?.chapters?.length;
+        return perc;
+    }
     return (
         <View style={{
             marginTop: 10
         }}>
             <Text style={{
                 fontSize: 25,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                color: 'white'
             }}>Progress</Text>
             <FlatList
                 data={courseList}
@@ -21,7 +27,7 @@ export default function CourseProgress({ courseList }) {
                         flex: 1,
                         margin: 7,
                         padding: 7,
-                        backgroundColor: Colors.BG_GRAY,
+                        backgroundColor: Colors.WHITE,
                         borderRadius: 8,
                         width: 280
                     }}>
@@ -51,10 +57,10 @@ export default function CourseProgress({ courseList }) {
                         <View style={{
                             marginTop: 10
                         }}>
-                            <Progress.Bar progress={0} width={250} />
+                            <Progress.Bar progress={GetCompletedChapters(item)} width={250} />
                             <Text style={{
                                 marginTop: 2
-                            }}>3 Out of 5 Chapter completed</Text>
+                            }}>{item?.completedChapter.length??0} Out of {item?.chapters.length} Chapter completed</Text>
                         </View>
                     </View>
                 )}
