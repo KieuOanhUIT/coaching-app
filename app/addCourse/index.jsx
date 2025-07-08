@@ -107,12 +107,14 @@ export default function AddCourse() {
             const courses = parsed?.courses || [];
             console.log("Courses array:", courses);
 
+            const docId = Date.now().toString();
             // lưu vào Firestore
             for (const course of courses) {
-                await setDoc(doc(db, 'Courses', Date.now().toString()), {
+                await setDoc(doc(db, 'Courses', docId), {
                     ...course,
                     createdOn: new Date(),
                     createdBy: userDetail?.email,
+                    docId: docId
                 });
             }
 
