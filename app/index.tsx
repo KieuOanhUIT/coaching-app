@@ -16,7 +16,7 @@ export default function Index() {
             if (user.email) {
                 const result = await getDoc(doc(db, 'users', user.email));
                 setUserDetail(result.data());
-                router.replace('/(tabs)/explore');
+                router.replace('/(tabs)/home');
             } else {
                 console.error("User email is null");
             }
