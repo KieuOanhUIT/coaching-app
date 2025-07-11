@@ -58,9 +58,9 @@ export default function Quiz() {
     return (
         <View>
             <Image style={{
-                height: 800,
+                height: 950,
                 width: '100%'
-            }} source={require('./../../assets/images/wave.png')} />
+            }} source={require('./../../assets/images/quizz.png')} />
             <View style={{
                 position: 'absolute',
                 padding: 25,
@@ -72,7 +72,7 @@ export default function Quiz() {
                     justifyContent: 'space-between',
                     alignItems: 'center'
                 }}>
-                    <Pressable>
+                    <Pressable onPress={()=>router.back()}>
                         <Ionicons name="arrow-back" size={24} color="white" />
                     </Pressable>
                     <Text style={{

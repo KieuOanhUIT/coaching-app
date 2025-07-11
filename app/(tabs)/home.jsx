@@ -31,13 +31,12 @@ export default function home() {
 
   return (
     <FlatList
+    style={{backgroundColor:'white', flex:1}}
       data={[]}
       onRefresh={() => GetCourseList()}
       refreshing={loading}
       ListHeaderComponent={
-        <View style={{
-          backgroundColor: 'white', flex: 1
-        }}>
+        <View >
           <Image style={{
             position: 'absolute',  
             width: '100%',
