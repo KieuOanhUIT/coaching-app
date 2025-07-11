@@ -1,5 +1,4 @@
-import { Text, TouchableOpacity } from 'react-native';
-import { ActivityIndicator } from 'react-native-web';
+import { ActivityIndicator, Text, TouchableOpacity } from 'react-native';
 import Colors from '../../constants/Colors';
 export default function Button({text, type = "fill", onPress, loading}) {
     return (
