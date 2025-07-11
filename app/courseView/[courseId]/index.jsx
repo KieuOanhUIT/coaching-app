@@ -6,7 +6,7 @@ import Chapters from '../../../components/CourseView/Chapters';
 import Intro from '../../../components/CourseView/Intro';
 import { db } from './../../../config/firebaseConfig';
 export default function CourseView() {
-    const { courseParams, courseId } = useLocalSearchParams();
+    const { courseParams, courseId, enroll } = useLocalSearchParams();
     const [course, setCourse]=useState([]);
     // const course = JSON.parse(courseParams);
     // console.log(courseId);
@@ -33,7 +33,7 @@ export default function CourseView() {
                     flex: 1,
                     backgroundColor: 'white'
                 }}>
-                    <Intro course={course} />
+                    <Intro course={course} enroll={enroll}/>
                     <Chapters course={course} />
                 </View>} />
     )

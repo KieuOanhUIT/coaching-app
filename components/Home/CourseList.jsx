@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../../constants/Colors';
 import { imageAssets } from '../../constants/Option';
-export default function CourseList({ courseList, heading="Courses" }) {
+export default function CourseList({ courseList, heading="Courses", enroll=false }) {
     const router = useRouter();
     return (
         <View style={{
@@ -22,7 +22,8 @@ export default function CourseList({ courseList, heading="Courses" }) {
                         onPress={() => router.push({
                             pathname: '/courseView/' + item?.docId,
                             params: {
-                                courseParams: JSON.stringify(item)
+                                courseParams: JSON.stringify(item),
+                                enroll: enroll
                             }
                         })}
                         key={index} style={styles.courseContainer}>
