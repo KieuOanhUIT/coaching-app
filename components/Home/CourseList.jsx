@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Colors from '../../constants/Colors';
 import { imageAssets } from '../../constants/Option';
-export default function CourseList({ courseList }) {
+export default function CourseList({ courseList, heading="Courses" }) {
     const router = useRouter();
     return (
         <View style={{
@@ -12,7 +12,7 @@ export default function CourseList({ courseList }) {
             <Text style={{
                 fontSize: 25,
                 fontWeight: 'bold'
-            }}>Courses</Text>
+            }}>{heading}</Text>
             <FlatList
                 data={courseList}
                 horizontal={true}
